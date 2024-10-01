@@ -45,6 +45,9 @@ group :development, :test do
 
   # Omakase Ruby styling [https://github.com/rails/rubocop-rails-omakase/]
   gem "rubocop-rails-omakase", require: false
+
+  # Rspec tests
+  gem 'rspec-rails', '~> 7.0.1'
 end
 
 group :development do
@@ -53,12 +56,18 @@ group :development do
 
   # Highlight the fine-grained location where an error occurred [https://github.com/ruby/error_highlight]
   gem "error_highlight", ">= 0.4.0", platforms: [:ruby]
+
+  # Optimizes testing
+  gem 'spring-commands-rspec'
+
+
 end
 
 group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem "capybara"
   gem "selenium-webdriver"
+
 end
 
 gem "devise", "~> 4.9"
