@@ -97,6 +97,10 @@ GEM
     crass (1.0.6)
     cssbundling-rails (1.4.1)
       railties (>= 6.0.0)
+    database_cleaner-active_record (2.2.0)
+      activerecord (>= 5.a)
+      database_cleaner-core (~> 2.0.0)
+    database_cleaner-core (2.0.1)
     date (3.3.4)
     debug (1.9.2)
       irb (~> 1.10)
@@ -111,6 +115,11 @@ GEM
     drb (2.2.1)
     error_highlight (0.6.0)
     erubi (1.13.0)
+    factory_girl (4.9.0)
+      activesupport (>= 3.0.0)
+    factory_girl_rails (4.9.0)
+      factory_girl (~> 4.9.0)
+      railties (>= 3.0.0)
     ffi (1.17.0-aarch64-linux-gnu)
     ffi (1.17.0-aarch64-linux-musl)
     ffi (1.17.0-arm-linux-gnu)
@@ -360,9 +369,11 @@ DEPENDENCIES
   brakeman
   capybara
   cssbundling-rails
+  database_cleaner-active_record
   debug
   devise (~> 4.9)
   error_highlight (>= 0.4.0)
+  factory_girl_rails (~> 4.9.0)
   font-awesome-sass (~> 6.5.1)
   importmap-rails
   jbuilder
