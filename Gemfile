@@ -48,6 +48,9 @@ group :development, :test do
 
   # Rspec tests
   gem 'rspec-rails', '~> 7.0.1'
+
+  # Factories for reusability of testing data
+  gem "factory_girl_rails", "~> 4.9.0"
 end
 
 group :development do
@@ -59,6 +62,9 @@ group :development do
 
   # Optimizes testing
   gem 'spring-commands-rspec'
+
+  # Cleans DB between tests
+   gem 'database_cleaner-active_record'
 
 
 end
