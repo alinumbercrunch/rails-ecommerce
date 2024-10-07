@@ -50,7 +50,7 @@ group :development, :test do
   gem 'rspec-rails', '~> 7.0.1'
 
   # Factories for reusability of testing data
-  gem "factory_girl_rails", "~> 4.9.0"
+  gem "factory_bot_rails"
 end
 
 group :development do
