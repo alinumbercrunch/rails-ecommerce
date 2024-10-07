@@ -1,5 +1,6 @@
 # This file is copied to spec/ when you run 'rails generate rspec:install'
 require 'spec_helper'
+require_relative './support/factory_bot.rb'
 require 'database_cleaner-active_record'
 ENV['RAILS_ENV'] ||= 'test'
 require_relative '../config/environment'
