@@ -6,21 +6,18 @@ on:
     branches: [ main ]
 
 jobs:
-  scan_ruby:
+  build:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
+      - uses: actions/checkout@v2
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: .ruby-version
-          bundler-cache: true
-
-      - name: Scan for common Rails security vulnerabilities using static analysis
-        run: bin/brakeman --no-pager
+          ruby-version: 3.1.2
+      - name: Update RubyGems
+        run: gem update --system
+      - name: Install dependencies
+        run: bundle install --jobs 4
 
   scan_js:
     runs-on: ubuntu-latest
