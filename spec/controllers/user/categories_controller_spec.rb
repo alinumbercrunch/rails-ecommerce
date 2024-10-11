@@ -43,7 +43,7 @@ RSpec.describe User::CategoriesController, type: :controller do
 
   describe "GET #index" do
     it "returns a success response" do
-      User::Category.create! valid_attributes
+      Category.create! valid_attributes
       get :index, params: {}, session: valid_session
       expect(response).to be_successful
     end
@@ -51,7 +51,7 @@ RSpec.describe User::CategoriesController, type: :controller do
 
   describe "GET #show" do
     it "returns a success response" do
-      category = User::Category.create! valid_attributes
+      category = Category.create! valid_attributes
       get :show, params: {id: category.to_param}, session: valid_session
       expect(response).to be_successful
     end
@@ -66,7 +66,7 @@ RSpec.describe User::CategoriesController, type: :controller do
 
   describe "GET #edit" do
     it "returns a success response" do
-      category = User::Category.create! valid_attributes
+      category = Category.create! valid_attributes
       get :edit, params: {id: category.to_param}, session: valid_session
       expect(response).to be_successful
     end
@@ -77,12 +77,12 @@ RSpec.describe User::CategoriesController, type: :controller do
       it "creates a new User::Category" do
         expect {
           post :create, params: {user_category: valid_attributes}, session: valid_session
-        }.to change(User::Category, :count).by(1)
+        }.to change(Category, :count).by(1)
       end
 
       it "redirects to the created user_category" do
         post :create, params: {user_category: valid_attributes}, session: valid_session
-        expect(response).to redirect_to(User::Category.last)
+        expect(response).to redirect_to(Category.last)
       end
     end
 
@@ -101,14 +101,14 @@ RSpec.describe User::CategoriesController, type: :controller do
       }
 
       it "updates the requested user_category" do
-        category = User::Category.create! valid_attributes
+        category = Category.create! valid_attributes
         put :update, params: {id: category.to_param, user_category: new_attributes}, session: valid_session
         category.reload
         skip("Add assertions for updated state")
       end
 
       it "redirects to the user_category" do
-        category = User::Category.create! valid_attributes
+        category = Category.create! valid_attributes
         put :update, params: {id: category.to_param, user_category: new_attributes}, session: valid_session
         expect(response).to redirect_to(category)
       end
@@ -116,7 +116,7 @@ RSpec.describe User::CategoriesController, type: :controller do
 
     context "with invalid params" do
       it "renders a response with 422 status (i.e. to display the 'edit' template)" do
-        category = User::Category.create! valid_attributes
+        category = Category.create! valid_attributes
         put :update, params: {id: category.to_param, user_category: invalid_attributes}, session: valid_session
         expect(response).to have_http_status(:unprocessable_entity)
       end
@@ -125,14 +125,14 @@ RSpec.describe User::CategoriesController, type: :controller do
 
   describe "DELETE #destroy" do
     it "destroys the requested user_category" do
-      category = User::Category.create! valid_attributes
+      category = Category.create! valid_attributes
       expect {
         delete :destroy, params: {id: category.to_param}, session: valid_session
-      }.to change(User::Category, :count).by(-1)
+      }.to change(Category, :count).by(-1)
     end
 
     it "redirects to the user_categories list" do
-      category = User::Category.create! valid_attributes
+      category = Category.create! valid_attributes
       delete :destroy, params: {id: category.to_param}, session: valid_session
       expect(response).to redirect_to(user_categories_url)
     end

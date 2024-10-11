@@ -17,6 +17,7 @@ class User::CategoriesController < UserController
 
   # GET /user/categories/1/edit
   def edit
+    @user_category = Category.find(params[:id])
   end
 
   # POST /user/categories or /user/categories.json
