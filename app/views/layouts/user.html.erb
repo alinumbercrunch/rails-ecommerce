@@ -12,11 +12,11 @@
   </head>
 
   <body>
-    <main class=" px-5 flex">
-      <nav class="flex w-full">
-        <div class="w-64 p-4 h-screen bg-gray-600 sticky top-0">
+    <main class="flex">
+      <div class="flex w-full">
+        <nav class="w-64 p-4 h-screen bg-gray-600 sticky top-0">
           <div class="flex">
-            <%= image_tag "logo.png", class: "w-16 h-16  mr-2" %>
+            <%= image_tag "logo.png", class: "w-16 h-16 mr-2" %>
             <h1 class="text-md py-2 text-gray-50 font-bold hidden md:block">Ecomm Admin</h1>
           </div>
           <ul class="flex flex-col text-gray-800">
@@ -32,7 +32,7 @@
             </li>
             <li>
               <%= link_to user_categories_path, class: "block px-4 py-2 hover:rounded hover:bg-gray-700" do %>
-                <%= icon("fa-solid", "list", class: "mr-2 text-white") %><span class="hidden md:inline-block text-white" >Categories</span>
+                <%= icon("fa-solid", "list", class: "mr-2 text-white") %><span class="hidden md:inline-block text-white">Categories</span>
               <% end %>
             </li>
             <li>
@@ -41,9 +41,11 @@
               <% end %>
             </li>
           </ul>
-        </div>
-      </nav>
-      <%= yield %>
+        </nav>
+      <div class="p-8">
+        <%= yield %>
+      </div>
+      </div>
     </main>
   </body>
 </html>

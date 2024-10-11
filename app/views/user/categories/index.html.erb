@@ -6,16 +6,42 @@
   <% content_for :title, "Categories" %>
 
   <div class="flex justify-between items-center">
-    <h1 class="font-bold text-4xl">Categories</h1>
+    <h1 class="font-bold text-4xl mr-2">Categories</h1>
     <%= link_to "New category", new_user_category_path, class: "rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium" %>
   </div>
 
-  <div id="user_categories" class="min-w-full">
-    <% @user_categories.each do |user_category| %>
-      <%= render user_category %>
-      <p>
-        <%= link_to "Show this category", user_category_path(user_category), class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-      </p>
-    <% end %>
+  <div class="flex flex-col w-full">
+    <div class="overflow-x-auto sm:mx:0.5 lg:mx-0.5">
+       <div class="py-2 inline-block min-w-full">
+        <div class="overflow-x-auto">
+          <table class="min-w-full overflow-x-srcoll">
+            <thead class="bg-white border-b">
+              <tr>
+                <th scope="col" class="text-sm font-medium text-gray-800 px-6 py-4 text-left">
+                  Name
+                </th>
+                <th scope="col" class="text-sm font-medium text-gray-800 px-6 py-4 text-left">
+                  Description
+                </th>
+              </tr>
+            </thead>[
+            <tbody>
+              <%  @user_categories.each do |category| %>
+                  <tr class="bg-gray-50 border-b">
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-med text-gray-800 underline">
+                      <%= link_to category.name, edit_user_category_path(category) %>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-med text-gray-800">
+                      <%= link_to category.description, edit_user_category_path(category) %>
+                    </td>
+                  </tr>
+              <% end %>
+            </tbody>
+          </table>
+
+        </div>
+       </div>
+    </div>
+
   </div>
 </div>
