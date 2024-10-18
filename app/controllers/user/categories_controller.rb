@@ -26,7 +26,7 @@ class User::CategoriesController < UserController
 
     respond_to do |format|
       if @user_category.save
-        format.html { redirect_to @user_category, notice: "Category was successfully created." }
+        format.html { redirect_to user_category_url(@user_category), notice: "Category was successfully created." }
         format.json { render :show, status: :created, location: @user_category }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -39,7 +39,7 @@ class User::CategoriesController < UserController
   def update
     respond_to do |format|
       if @user_category.update(user_category_params)
-        format.html { redirect_to @user_category, notice: "Category was successfully updated." }
+        format.html { redirect_to user_category_url, notice: "Category was successfully updated." }
         format.json { render :show, status: :ok, location: @user_category }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -66,6 +66,6 @@ class User::CategoriesController < UserController
 
     # Only allow a list of trusted parameters through.
     def user_category_params
-      params.require(:user_category).permit(:name, :description)
+      params.require(:category).permit(:name, :description)
     end
 end
