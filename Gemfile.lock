@@ -403,6 +403,7 @@ DEPENDENCIES
   rails (~> 7.2.1)
   rspec-rails (~> 7.0.1)
   rubocop-rails-omakase
+  ruby-vips
   selenium-webdriver
   spring-commands-rspec
   sprockets-rails

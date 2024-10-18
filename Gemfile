@@ -85,3 +85,5 @@ gem 'tailwindcss-rails'
 gem 'htmlbeautifier'
 
 gem 'image_processing'
+
+gem 'ruby-vips'
