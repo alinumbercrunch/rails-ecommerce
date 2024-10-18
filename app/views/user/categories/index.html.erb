@@ -40,6 +40,9 @@
                     <td class="px-6 py-4 whitespace-nowrap text-sm font-med text-gray-800">
                       <%= link_to category.description, edit_user_category_path(category) %>
                     </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-med text-gray-800">
+                        <%= button_to "Delete", user_category_path(category), method: :delete, class: "mt-2 rounded-lg py-3 px-5 bg-red-500 text-white font-medium hover:bg-red-600" %>
+                    </td>
                   </tr>
               <% end %>
             </tbody>
