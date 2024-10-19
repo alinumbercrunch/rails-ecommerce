@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   namespace :user do
+    resources :products
     resources :categories
   end
   devise_for :users
