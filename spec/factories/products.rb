@@ -1,9 +1,9 @@
 FactoryBot.define do
-  factory :user_product, class: 'User::Product' do
+  factory :product do
     name { "MyString" }
     description { "MyText" }
     price { 1 }
-    category { nil }
     active { false }
+    association :category
   end
 end
