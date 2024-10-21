@@ -87,3 +87,5 @@ gem 'htmlbeautifier'
 gem 'image_processing'
 
 gem 'ruby-vips'
+
+gem "ffi", "< 1.17.0"
