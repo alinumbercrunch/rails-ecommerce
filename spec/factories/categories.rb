@@ -1,5 +1,5 @@
 FactoryBot.define do
-  factory :user_category, class: 'User::Category' do
+  factory :category do
     name { "MyString" }
     description { "MyText" }
   end
