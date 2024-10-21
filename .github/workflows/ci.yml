@@ -3,7 +3,7 @@ name: CI
 on:
   pull_request:
   push:
-    branches: [ main ]
+    branches: [main]
 
 jobs:
   build:
@@ -15,23 +15,22 @@ jobs:
         with:
           ruby-version: 3.1.2
       - name: Update RubyGems
-        run: gem update --system 3.3.22
+        run: |
+          gem update --system
+          gem --version
       - name: Install dependencies
         run: bundle install --jobs 4
 
   scan_js:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: 3.3.22
+          ruby-version: 3.1.2
           bundler-cache: true
-
       - name: Scan for security vulnerabilities in JavaScript dependencies
         run: bin/importmap audit
 
@@ -40,37 +39,38 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: .ruby-version
+          ruby-version: 3.1.2
           bundler-cache: true
-
       - name: Lint code for consistent style
         run: bin/rubocop -f github
 
   test:
     runs-on: ubuntu-latest
-
     steps:
       - name: Install packages
         run: sudo apt-get update && sudo apt-get install --no-install-recommends -y google-chrome-stable curl libjemalloc2 libvips sqlite3
-
       - name: Checkout code
         uses: actions/checkout@v4
-
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: .ruby-version
+          ruby-version: 3.1.2
           bundler-cache: true
-
+      - name: Update RubyGems
+        run: |
+          gem update --system
+          gem --version
+      - name: Install dependencies
+        run: bundle install --jobs 4
+      - name: Prepare database
+        run: bin/rails db:create db:schema:load db:test:prepare
       - name: Run tests
         env:
           RAILS_ENV: test
-        run: bin/rails db:test:prepare test test:system
-
+        run: bundle exec rspec spec
       - name: Keep screenshots from failed system tests
         uses: actions/upload-artifact@v4
         if: failure()
