@@ -5,4 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   validates :email, presence: true, uniqueness: true
+
+  has_many :categories
 end
