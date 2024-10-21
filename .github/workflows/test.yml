@@ -35,7 +35,7 @@ jobs:
         run: bundle install --jobs 4
 
       - name: Prepare database
-        run: bin/rails db:test:prepare
+        run: bin/rails db:create db:schema:load db:test:prepare
 
       - name: Run tests
         env:
