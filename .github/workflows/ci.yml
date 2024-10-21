@@ -22,9 +22,13 @@ jobs:
           gem update --system
           gem --version
 
+      - name: Verify RubyGems Version
+        run: gem --version
+
       - name: Install dependencies
         run: |
           gem install bundler
+          bundle config --local path 'vendor/bundle'
           bundle install --jobs 4
 
   scan_js:
@@ -80,9 +84,13 @@ jobs:
           gem update --system
           gem --version
 
+      - name: Verify RubyGems Version
+        run: gem --version
+
       - name: Install dependencies
         run: |
           gem install bundler
+          bundle config --local path 'vendor/bundle'
           bundle install --jobs 4
 
       - name: Prepare database
