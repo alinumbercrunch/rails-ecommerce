@@ -23,7 +23,9 @@ jobs:
           gem --version
 
       - name: Install dependencies
-        run: bundle install --jobs 4
+        run: |
+          gem install bundler
+          bundle install --jobs 4
 
   scan_js:
     runs-on: ubuntu-latest
@@ -79,7 +81,9 @@ jobs:
           gem --version
 
       - name: Install dependencies
-        run: bundle install --jobs 4
+        run: |
+          gem install bundler
+          bundle install --jobs 4
 
       - name: Prepare database
         run: bin/rails db:create db:schema:load db:test:prepare
