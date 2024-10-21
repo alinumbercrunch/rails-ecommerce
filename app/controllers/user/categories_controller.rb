@@ -1,4 +1,6 @@
 class User::CategoriesController < UserController
+  # layout "user"
+  before_action :authenticate_user!
   before_action :set_user_category, only: %i[ show edit update destroy ]
 
   # GET /user/categories or /user/categories.json
@@ -22,7 +24,7 @@ class User::CategoriesController < UserController
 
   # POST /user/categories or /user/categories.json
   def create
-    @user_category = Category.new(user_category_params)
+    @user_category = current_user.categories.new(user_category_params)
 
     respond_to do |format|
       if @user_category.save
