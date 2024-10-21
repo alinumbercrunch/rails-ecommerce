@@ -22,19 +22,25 @@ jobs:
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: .ruby-version
+          ruby-version: 3.1.2
           bundler-cache: true
 
       - name: Update RubyGems
         run: gem update --system 3.3.22
 
+      - name: Verify RubyGems version
+        run: gem --version
+
       - name: Install dependencies
         run: bundle install --jobs 4
+
+      - name: Prepare database
+        run: bin/rails db:test:prepare
 
       - name: Run tests
         env:
           RAILS_ENV: test
-        run: bin/rails db:test:prepare test test:system
+        run: bundle exec rspec spec
 
       - name: Keep screenshots from failed system tests
         uses: actions/upload-artifact@v4
