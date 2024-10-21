@@ -29,6 +29,9 @@ jobs:
           gem update --system
           gem --version
 
+      - name: Verify RubyGems Version
+        run: gem --version
+
       - name: Install Bundler
         run: gem install bundler
 
