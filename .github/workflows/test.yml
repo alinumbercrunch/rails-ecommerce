@@ -25,6 +25,9 @@ jobs:
           ruby-version: .ruby-version
           bundler-cache: true
 
+      - name: Update RubyGems
+        run: gem update --system 3.3.22
+
       - name: Install dependencies
         run: bundle install --jobs 4
 
