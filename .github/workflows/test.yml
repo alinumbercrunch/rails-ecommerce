@@ -26,7 +26,7 @@ jobs:
 
       - name: Update RubyGems
         run: |
-          gem update --system 3.3.22
+          gem update --system
           gem --version
 
       - name: Install Bundler
@@ -36,8 +36,7 @@ jobs:
         run: bundle install --jobs 4
 
       - name: Prepare database
-        run: |
-          bin/rails db:create db:schema:load db:test:prepare
+        run: bin/rails db:create db:schema:load db:test:prepare
 
       - name: Run tests
         env:
