@@ -59,7 +59,7 @@ group :development do
   gem "web-console"
 
   # Highlight the fine-grained location where an error occurred [https://github.com/ruby/error_highlight]
-gem "error_highlight", ">= 0.6.0", platforms: [:ruby]
+  # gem "error_highlight", ">= 0.6.0", platforms: [:ruby]
 
   # Optimizes testing
   gem 'spring-commands-rspec'
