@@ -25,7 +25,9 @@ jobs:
           ruby-version: 3.1.2
 
       - name: Update RubyGems
-        run: gem update --system 3.3.22
+        run: |
+          gem update --system
+          gem --version
 
       - name: Install Bundler
         run: gem install bundler
