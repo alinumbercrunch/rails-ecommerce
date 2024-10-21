@@ -17,28 +17,27 @@ jobs:
         run: sudo apt-get update && sudo apt-get install --no-install-recommends -y google-chrome-stable curl libjemalloc2 libvips sqlite3
 
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v2
 
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: 3.1.2
-          bundler-cache: true
 
       - name: Update RubyGems
-        run: gem update --system 3.3.22
+        run: |
+          gem update --system 3.3.22
+          gem --version
 
       - name: Install Bundler
         run: gem install bundler
-
-      - name: Verify RubyGems version
-        run: gem --version
 
       - name: Install dependencies
         run: bundle install --jobs 4
 
       - name: Prepare database
-        run: bin/rails db:create db:schema:load db:test:prepare
+        run: |
+          bin/rails db:create db:schema:load db:test:prepare
 
       - name: Run tests
         env:
