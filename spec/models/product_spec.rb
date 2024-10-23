@@ -28,8 +28,8 @@ describe Product do
   end
 
   it "is invalid with a duplicate name" do
-    FactoryBot.create(:product)
-    product = FactoryBot.build(:product)
+    FactoryBot.create(:product, name: "Shoes")
+    product = FactoryBot.build(:product, name: "Shoes")
     product.valid?
     expect(product.errors[:name]).to include("has already been taken")
   end
