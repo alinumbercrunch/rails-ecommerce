@@ -22,18 +22,28 @@
   </div>
 
   <div class="my-5">
+  <% if user_product.images.any? %>
+    <% user_product.images.each do |image| %>
+      <%= image_tag image, class: "w-20 h-20 object-cover rounded-md" %>
+    <% end %>
+  <% end %>
+  <%= form.label :images %>
+  <%= form.file_field :images, multiple: true, class: "block shadow rounded-md border border-gray-400 outline-none px-3 py-2 mt-2 w-full" %>
+  </div>
+
+  <div class="my-5">
     <%= form.label :price %>
     <%= form.number_field :price, class: "block shadow rounded-md border border-gray-400 outline-none px-3 py-2 mt-2 w-full" %>
   </div>
 
   <div class="my-5">
     <%= form.label :category_id %>
-    <%= form.text_field :category_id, class: "block shadow rounded-md border border-gray-400 outline-none px-3 py-2 mt-2 w-full" %>
+    <%= form.text_field :category_id, class: "block shadow rounded-md border border-gray-400 outline-none px-3 py-2 mt-2" %>
   </div>
 
   <div class="my-5">
     <%= form.label :active %>
-    <%= form.check_box :active, class: "block shadow rounded-md border border-gray-400 outline-none px-3 py-2 mt-2 w-full" %>
+    <%= form.check_box :active, class: "block shadow rounded-md border border-gray-400 outline-none px-3 py-2 mt-2" %>
   </div>
 
   <div class="inline">

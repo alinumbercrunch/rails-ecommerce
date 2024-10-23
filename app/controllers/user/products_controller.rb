@@ -36,15 +36,15 @@ class User::ProductsController < UserController
 
   # PATCH/PUT /user/products/1 or /user/products/1.json
   def update
-    respond_to do |format|
-      if @user_product.update(user_product_params)
-        format.html { redirect_to user_product_url(@user_product), notice: "Product was successfully updated." }
-        format.json { render :show, status: :ok, location: @user_product }
-      else
-        puts @user_product.errors.full_messages
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @user_product.errors, status: :unprocessable_entity }
+    @user_product = Product.find(params[:id])
+    if @user_product.update(user_product_params.reject {|k| k["images"] })
+      if user_product_params["images"]
+        user_product_params["images"].each do |image|
+           @user_product.images.attach(image)
+        end
       end
+        redirect_to user_products_path, notice: "Product was successfully updated"
+      else render :edit, status: :unprocessable_entity
     end
   end
 
@@ -66,6 +66,6 @@ class User::ProductsController < UserController
 
     # Only allow a list of trusted parameters through.
     def user_product_params
-      params.require(:user_product).permit(:name, :description, :price, :category_id, :active)
+      params.require(:product).permit(:name, :description, :price, :category_id, :active, images: [])
     end
 end
