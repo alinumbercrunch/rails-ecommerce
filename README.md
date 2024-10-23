@@ -1,6 +1,6 @@
 # **rails-Ecommerce**
 
-Welcome to the eCommerce Shop repository! This project is an online store application built with Ruby on Rails, designed to provide a seamless shopping experience.
+Welcome to the eCommerce Shop repository! This project is an online store application built with Ruby on Rails.
 
 ## **Idea**
 
