@@ -25,7 +25,7 @@ class User::ProductsController < UserController
 
     respond_to do |format|
       if @user_product.save
-        format.html { redirect_to @user_product, notice: "Product was successfully created." }
+        format.html { redirect_to user_product_url(@user_product), notice: "Product was successfully created." }
         format.json { render :show, status: :created, location: @user_product }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,9 +38,10 @@ class User::ProductsController < UserController
   def update
     respond_to do |format|
       if @user_product.update(user_product_params)
-        format.html { redirect_to @user_product, notice: "Product was successfully updated." }
+        format.html { redirect_to user_product_url(@user_product), notice: "Product was successfully updated." }
         format.json { render :show, status: :ok, location: @user_product }
       else
+        puts @user_product.errors.full_messages
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @user_product.errors, status: :unprocessable_entity }
       end
