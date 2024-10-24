@@ -63,7 +63,7 @@ RSpec.describe User::ProductsController, type: :controller do
         product_params = FactoryBot.attributes_for(:product, category: @category).merge(category_id: @category.id)
         sign_in @user
         expect {
-          post :create, params: { user_product: product_params }
+          post :create, params: { product: product_params }
           puts response.body
         }.to change(@category.products, :count).by(1)
       end
@@ -95,7 +95,7 @@ RSpec.describe User::ProductsController, type: :controller do
       it "updates a product" do
         product_params = FactoryBot.attributes_for(:product, name: "Updated product name")
         sign_in @user
-        patch :update, params: { id: @product.id, user_product: product_params }
+        patch :update, params: { id: @product.id, product: product_params }
         expect(@product.reload.name).to eq "Updated product name"
       end
     end
