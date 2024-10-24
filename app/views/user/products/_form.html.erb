@@ -38,7 +38,11 @@
 
   <div class="my-5">
     <%= form.label :category_id %>
-    <%= form.text_field :category_id, class: "block shadow rounded-md border border-gray-400 outline-none px-3 py-2 mt-2" %>
+    <%= form.collection_select :category_id, Category.order(:name), :id, :name, class: "block shadow rounded-md border border-gray-400 outline-none px-3 py-2 mt-2" %>
+  </div>
+
+  <div class="my-5">
+  <%= link_to "Product Stock", user_product_stocks_path(user_product), class: "underline" %>
   </div>
 
   <div class="my-5">
