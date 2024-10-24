@@ -5,5 +5,6 @@ FactoryBot.define do
     price { 1 }
     active { false }
     association :category
+    images { [Rack::Test::UploadedFile.new(Rails.root.join('spec/fixtures/cat.jpg'), 'image/jpg')] }
   end
 end

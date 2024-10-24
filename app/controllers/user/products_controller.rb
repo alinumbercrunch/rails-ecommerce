@@ -22,7 +22,6 @@ class User::ProductsController < UserController
   # POST /user/products or /user/products.json
   def create
     @user_product = Product.new(user_product_params)
-
     respond_to do |format|
       if @user_product.save
         format.html { redirect_to user_product_url(@user_product), notice: "Product was successfully created." }
