@@ -29,6 +29,7 @@ Rails.application.routes.draw do
   end
 
   # User Index
+  #
   get "user" => "user#index"
 
 end
