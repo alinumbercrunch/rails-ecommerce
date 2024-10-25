@@ -14,4 +14,8 @@
     <%= stock.size %>
   </p>
 
+  <% if action_name != "show" %>
+    <%= link_to "Edit this stock", edit_user_product_stock_path(stock.product, stock), class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <%= link_to "Show this stock", [:user, stock.product, stock], class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+  <% end %>
 </div>

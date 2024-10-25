@@ -1,9 +1,10 @@
 class User::StocksController < ApplicationController
+  layout "user"
   before_action :set_user_stock, only: %i[ show edit update destroy ]
 
   # GET /user/stocks or /user/stocks.json
   def index
-    @user_stocks = Stock.all
+    @user_stocks = Stock.where(product_id: params[:product_id])
   end
 
   # GET /user/stocks/1 or /user/stocks/1.json
@@ -20,6 +21,8 @@ class User::StocksController < ApplicationController
 
   # GET /user/stocks/1/edit
   def edit
+    @product = Product.find(params[:product_id])
+    @user_stock = Stock.find(params[:id])
   end
 
   # POST /user/stocks or /user/stocks.json
@@ -42,7 +45,7 @@ class User::StocksController < ApplicationController
   def update
     respond_to do |format|
       if @user_stock.update(user_stock_params)
-        format.html { redirect_to @user_stock, notice: "Stock was successfully updated." }
+        format.html { redirect_to user_product_stock_url, notice: "Stock was successfully updated." }
         format.json { render :show, status: :ok, location: @user_stock }
       else
         format.html { render :edit, status: :unprocessable_entity }
