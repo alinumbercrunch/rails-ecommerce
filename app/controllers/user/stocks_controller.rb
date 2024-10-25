@@ -1,5 +1,4 @@
-class User::StocksController < ApplicationController
-  layout "user"
+class User::StocksController < UserController
   before_action :set_user_stock, only: %i[ show edit update destroy ]
 
   # GET /user/stocks or /user/stocks.json
