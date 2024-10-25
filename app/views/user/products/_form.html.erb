@@ -41,6 +41,13 @@
     <%= form.collection_select :category_id, Category.order(:name), :id, :name, class: "block shadow rounded-md border border-gray-400 outline-none px-3 py-2 mt-2" %>
   </div>
 
+  <% if user_product.persisted? %>
+    <div class="my-5">
+      <%= link_to "Product Stock", user_product_stocks_path(user_product), class: "underline" %>
+    </div>
+  <% end %>
+
+
   <div class="my-5">
   <%= link_to "Product Stock", user_product_stocks_path(user_product), class: "underline" %>
   </div>

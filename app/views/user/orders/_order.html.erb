@@ -1,0 +1,28 @@
+<div id="<%= dom_id order %>">
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Customer email:</strong>
+    <%= order.customer_email %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Fullfilled:</strong>
+    <%= order.fullfilled %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Total:</strong>
+    <%= order.total %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Address:</strong>
+    <%= order.address %>
+  </p>
+
+  <% if action_name != "show" %>
+    <%= link_to "Edit this order", edit_user_order_path(order), class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <%= link_to "Show this order", [:user, order], class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+  <% end %>
+
+
+</div>

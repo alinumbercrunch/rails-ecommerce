@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  namespace :user do
+    resources :orders
+  end
  namespace :user do
     resources :products do
       resources :stocks
