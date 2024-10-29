@@ -35,4 +35,10 @@
       </div>
     </div>
   </div>
+  <div class="my-8 w-full">
+    <h2 class="text-2xl text-gray-800 font-medium mb-4">Revenue</h2>
+    <div class="" data-controller="dashboard" data-dashboard-revenue-value="<%= @revenue_by_day.to_json %>">
+      <canvas id="revenueChart"></canvas>
+    </div>
+  </div>
 </div>
