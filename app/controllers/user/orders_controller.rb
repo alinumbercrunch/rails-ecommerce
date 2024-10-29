@@ -3,9 +3,9 @@ class User::OrdersController < UserController
 
   # GET /user/orders or /user/orders.json
   def index
-    @user_orders = Order.all
+    @unfulfilled_orders = Order.where(fullfilled: false).order(created_at: :asc)
+    @fulfilled_orders = Order.where(fullfilled: true).order(created_at: :asc)
   end
-
   # GET /user/orders/1 or /user/orders/1.json
   def show
   end

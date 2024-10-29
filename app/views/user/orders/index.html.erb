@@ -2,17 +2,52 @@
   <% if notice.present? %>
     <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
   <% end %>
-
   <% content_for :title, "Orders" %>
-
   <div class="flex justify-between items-center">
     <h1 class="font-bold text-4xl">Orders</h1>
     <%= link_to "New order", new_user_order_path, class: "rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium" %>
   </div>
 
-  <div id="user_orders" class="min-w-full">
-    <% @user_orders.each do |user_order| %>
-      <%= render user_order %>
-    <% end %>
+  <div class="overflow-x-auto">
+    <div class="py-2 inline-block min-w-full">
+      <div class="overflow-x-scroll">
+        <table class="min-w-full">
+          <thead class="bg-white border-b">
+            <tr>
+              <th scope="col" class="text-sm font-medium text-gray-800 px-6 py-4 text-left">Order ID</th>
+              <th scope="col" class="text-sm font-medium text-gray-800 px-6 py-4 text-left">Customer Email</th>
+              <th scope="col" class="text-sm font-medium text-gray-800 px-6 py-4 text-left">Address</th>
+              <th scope="col" class="text-sm font-medium text-gray-800 px-6 py-4 text-left">Total</th>
+              <th scope="col" class="text-sm font-medium text-gray-800 px-6 py-4 text-left">Status</th>
+              <th scope="col" class="text-sm font-medium text-gray-800 px-6 py-4 text-left">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% (@unfulfilled_orders + @fulfilled_orders).each do |order| %>
+              <tr class="bg-gray-50 border-b">
+                <td class="px-6 py-4 whitespace-nowrap text-sm font-med text-gray-800">
+                  <%= link_to order.id, [:user, order], class: "underline" %>
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm font-med text-gray-800">
+                  <%= order.customer_email %>
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm font-med text-gray-800">
+                  <%= order.address %>
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm font-med text-gray-800">
+                  <%= "¥#{order.total}" %>
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm font-med text-gray-800">
+                  <%= order.fullfilled ? "Fulfilled" : "Unfulfilled" %>
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm font-med text-gray-800 mr-4">
+                  <%= button_to "Delete", user_order_path(order), method: :delete, class: "mt-2 rounded-lg py-3 px-5 bg-red-500 text-white font-medium hover:bg-red-600" %>
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
   </div>
 </div>

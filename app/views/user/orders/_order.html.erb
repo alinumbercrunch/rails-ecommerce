@@ -19,6 +19,15 @@
     <%= order.address %>
   </p>
 
+  <% if order.order_products.any? %>
+    <strong class="block font-medium mb-1">Products:</strong>
+    <% order.order_products.each do |order_product| %>
+        <%= order_product.product.name %>
+        <%= order_product.size %>
+        <%= order_product.quantity %>
+    <% end %>
+  <% end %>
+
   <% if action_name != "show" %>
     <%= link_to "Edit this order", edit_user_order_path(order), class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
     <%= link_to "Show this order", [:user, order], class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
