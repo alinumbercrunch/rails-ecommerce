@@ -1,4 +1,5 @@
 class User::StocksController < UserController
+  before_action :authenticate_user!
   before_action :set_user_stock, only: %i[ show edit update destroy ]
 
   # GET /user/stocks or /user/stocks.json
