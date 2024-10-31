@@ -1,4 +1,5 @@
 require 'rails_helper'
+# a
 
 
 RSpec.describe User::StocksController, type: :controller do
