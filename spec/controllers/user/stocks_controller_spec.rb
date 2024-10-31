@@ -1,4 +1,5 @@
 require 'rails_helper'
+# a
 
 
 RSpec.describe User::StocksController, type: :controller do
@@ -6,7 +7,8 @@ RSpec.describe User::StocksController, type: :controller do
     context "as an authenticated user" do
       before do
         @user = FactoryBot.create(:user, email: "alip2259@test.com")
-        @stock = FactoryBot.create(:stock)
+        @product = FactoryBot.create(:product)
+        @stock = FactoryBot.create(:stock, product: @product)
       end
 
       it "responds successfully" do
@@ -21,11 +23,27 @@ RSpec.describe User::StocksController, type: :controller do
         expect(response).to have_http_status(:ok)
       end
 
-      # it "responds with HTML formatted output" do
-      #   sign_in @user
-      #   get :show, params: { product_id: @stock.product.id }
-      #   expect(response.content_type).to eq "text/html; charset=utf-8"
-      # end
+      it "responds with HTML formatted output" do
+        sign_in @user
+        get :show, params: { product_id: @product.id, id: @stock }
+        expect(response.content_type).to eq "text/html; charset=utf-8"
+      end
+
+        it "adds a stock" do
+        @stock_params = FactoryBot.attributes_for(:stock, stock: @stock)
+        sign_in @user
+        expect {
+          post :create, params:{ product_id: @product.id, stock: @stock_params }
+          puts response.body
+        }.to change(@product.stocks, :count).by(1)
+      end
+
+      it "updates a product" do
+        stock_params = FactoryBot.attributes_for(:stock, size: "XL")
+        sign_in @user
+        patch :update, params: { product_id: @product.id, id: @stock.id, stock: stock_params}
+        expect(@stock.reload.size).to eq "XL"
+      end
     end
 
     context "as a guest" do
