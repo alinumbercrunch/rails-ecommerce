@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :product do
-    sequence(:name) { |n| "Unique Product #{n}" }
+    sequence(:name) { |n| "Unique#{n}Product" }
     description { "MyText" }
     price { 1 }
     active { false }
