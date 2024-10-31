@@ -16,7 +16,7 @@ This eCommerce shop allows users to browse a wide range of products, add them to
 - **Active Storage**: For handling file uploads, such as product images.
 - **FactoryBot**: A library for setting up Ruby objects as test data.
 - **RSpec**: Testing framework for Rails applications to ensure code reliability.
-- **CSS**: For styling the application and enhancing user experience.
+- **Tailwind**: For styling the application and enhancing user experience.
 - **GitHub**: Hosting the project repository and static assets.
 
 ---
