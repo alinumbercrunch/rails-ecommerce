@@ -17,6 +17,7 @@ This eCommerce shop allows users to browse a wide range of products, add them to
 - **FactoryBot**: A library for setting up Ruby objects as test data.
 - **RSpec**: Testing framework for Rails applications to ensure code reliability.
 - **Tailwind**: For styling the application and enhancing user experience.
+- **Chart.js**: For creating interactive charts and visualizing data.
 - **GitHub**: Hosting the project repository and static assets.
 
 ---
