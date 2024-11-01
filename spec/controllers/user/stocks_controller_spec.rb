@@ -44,6 +44,14 @@ RSpec.describe User::StocksController, type: :controller do
         patch :update, params: { product_id: @product.id, id: @stock.id, stock: stock_params}
         expect(@stock.reload.size).to eq "XL"
       end
+
+      it "deletes a  product" do
+        sign_in @user
+        expect {
+          delete :destroy, params: { product_id: @product.id, id: @stock.id }
+          puts response.body
+        }.to change(@product.stocks, :count).by(-1)
+      end
     end
 
     context "as a guest" do
