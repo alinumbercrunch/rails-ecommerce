@@ -1,4 +1,5 @@
 require 'rails_helper'
+# a
 
 RSpec.describe User::StocksController, type: :controller do
   describe "GET #index" do
@@ -42,6 +43,7 @@ RSpec.describe User::StocksController, type: :controller do
         patch :update, params: { product_id: @product.id, id: @stock.id, stock: stock_params}
         expect(@stock.reload.size).to eq "XL"
       end
+
 
       it "deletes a stock" do
         sign_in @user
