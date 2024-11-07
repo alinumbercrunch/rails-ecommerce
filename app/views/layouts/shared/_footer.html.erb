@@ -1,0 +1,45 @@
+<footer class="bg-gray-800 text-white">
+  <div class="max-2-6xl max-auto px-4 py-10 md:py-20">
+    <div class="xl:grid xl-grid-cols-3 xl:gap-8">
+      <div class="space-y-8 xl:col-span-1">
+        <h3 class="text-sm font-semibold text-gray-200 tracking-wider uppercase">About ShoppiSheep</h3>
+        <p class="text-white leading-6">Welcome to ShoppiSheep, your ultimate online shopping destination! From the latest fashion trends and cutting-edge gadgets to unique home decor and essentials, we've got it all!</p>
+      </div>
+
+      <div class="mt-12 grid gap-8 xl:mt-0 xl:col-span-2">
+        <div class="md:grid md:grid-cols-2 md:gap-8">
+          <div>
+            <h3 class="text-sm font-semibold text-gray-200 tracking-wider uppercase">Quick links</h3>
+            <ul class="mt-2 space-y-4">
+              <li>
+                <%= link_to "Home", root_path, class: "text-white-500 hover:underline py-2 rounded-md text-md font-medium" %>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="mt- md:grid md:grid-cols-2 md:gap-8">
+          <div>
+            <h3 class="text-sm font-semibold tracking-wider uppercase text-gray-200">Contact</h3>
+            <ul class="mt-2 space-y-4">
+              <li>
+                <p class="text-base leading-6 text-white">
+                  123 Asakasa-nichome-5<br>
+                  Tokyo, Japan
+                </p>
+              </li>
+              <li>
+                <p class="text-base leading-6 text-white">Email: Shiphelper@ss.com</p>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="border-t border-gray-700">
+    <div class="max-w-6xl px-4 py-6 md:flex md:items-center md:justify-between">
+      <p class="mt-6 text-base leading-6 text-gray-400 md:mt-0 md:order-1">
+      &copy; <%= Time.now.year %>  ShoppiSheep 株式会社, all rights reserved</p>
+    </div>
+  </div>
+</footer>
