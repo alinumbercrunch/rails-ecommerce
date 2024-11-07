@@ -23,6 +23,7 @@ This eCommerce shop allows users to browse a wide range of products, add them to
 - ![Tailwind](https://img.shields.io/badge/-Tailwind-38B2AC?logo=tailwindcss&logoColor=white&style=flat-square) **Tailwind**: For styling the application and enhancing user experience.
 - ![Chart.js](https://img.shields.io/badge/-Chart.js-FF6384?logo=chartdotjs&logoColor=white&style=flat-square) **Chart.js**: For creating interactive charts and visualizing data.
 - ![GitHub](https://img.shields.io/badge/-GitHub-181717?logo=github&logoColor=white&style=flat-square) **GitHub**: Hosting the project repository and static assets.
+- ![AWS](https://img.shields.io/badge/-AWS-232F3E?logo=amazon-aws&logoColor=white&style=flat-square) **AWS**: For deployment and cloud services.
 
 ---
 
