@@ -7,6 +7,7 @@ Enjoy a woolly smooth shopping experience with us!
 
 
 ## **Idea**
+### Why sheeps? Because I like them (Favorite animals)
 
 This eCommerce shop allows users to browse a wide range of products, add them to their cart, and make purchases securely. The platform includes user authentication, product management, and order processing, aiming to provide a comprehensive online shopping experience.
 
