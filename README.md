@@ -1,7 +1,9 @@
-# **ShoppiSheep ![image](https://github.com/user-attachments/assets/d01703dc-7e7c-49a4-8c42-28536a40fde3)**
+# **ShoppiSheep 🐑**
 
-Welcome to ShoppiSheep! This project is an online store application built with Ruby on Rails.
+Enjoy a woolly smooth shopping experience with us!
 
+
+![ShoppiSheep](https://github.com/user-attachments/assets/e0c9df7d-e931-493c-954c-f008eee064a0)
 
 
 ## **Idea**
