@@ -1,6 +1,8 @@
-# **rails-Ecommerce**
+# **ShoppiSheep ![image](https://github.com/user-attachments/assets/d01703dc-7e7c-49a4-8c42-28536a40fde3)**
 
-Welcome to the eCommerce Shop repository! This project is an online store application built with Ruby on Rails.
+Welcome to ShoppiSheep! This project is an online store application built with Ruby on Rails.
+
+
 
 ## **Idea**
 
