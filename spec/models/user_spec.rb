@@ -33,8 +33,8 @@ describe User do
   end
 
   it "is invalid with a duplicate email address" do
-    FactoryBot.create(:user)
-    user = FactoryBot.build(:user)
+    FactoryBot.create(:user, email: "duplicate@example.com" )
+    user = FactoryBot.build(:user, email: "duplicate@example.com" )
     user.valid?
     expect(user.errors[:email]).to include("has already been taken")
   end
