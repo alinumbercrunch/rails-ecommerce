@@ -1,5 +1,5 @@
 FactoryBot.define do
-  factory :user_order, class: 'User::Order' do
+  factory :order do
     customer_email { "MyString" }
     fullfilled { false }
     total { 1 }
