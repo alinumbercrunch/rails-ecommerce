@@ -1,4 +1,5 @@
 class User::OrdersController < UserController
+  before_action :authenticate_user!
   before_action :set_user_order, only: %i[ show edit update destroy ]
 
   # GET /user/orders or /user/orders.json
@@ -21,7 +22,7 @@ class User::OrdersController < UserController
 
   # POST /user/orders or /user/orders.json
   def create
-    @user_order = Order.new(user_order_params)
+    @user_order = current_user.orders.new(user_order_params)
     respond_to do |format|
       if @user_order.save
         format.html { redirect_to  user_order_url(@user_order), notice: "Order was successfully created." }

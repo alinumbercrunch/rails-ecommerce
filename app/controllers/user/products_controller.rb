@@ -1,4 +1,5 @@
 class User::ProductsController < UserController
+  before_action :authenticate_user!
   before_action :set_user_product, only: %i[ show edit update destroy ]
 
   # GET /user/products or /user/products.json
