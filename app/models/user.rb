@@ -8,4 +8,5 @@ class User < ApplicationRecord
 
   has_many :categories
   has_many :products, dependent: :destroy
+  has_many :orders, dependent: :destroy
 end
