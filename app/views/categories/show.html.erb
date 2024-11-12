@@ -9,10 +9,10 @@
     <% else %>
       <% @products.each do |product| %>
         <%= link_to product_path(product) do %>
-          <div class="overflow-hidden bg-white shadow-lg rounded-lg">
-            <%= product.images.first ? image_tag(product.images.first.variant(:medium), class: "w-full h-64 object-cover rounded") : image_tag("https://via.placeholder.com/70", class: "w-full h-64 object-cover rounded") %>
-            <div class="p-6 flex justify-between items-end relative">
-              <div class="text-lg font-semibold">
+          <div class="overflow-hidden bg-white shadow-lg rounded-lg transform transition-transform hover:scale-105 w-64 h-80">
+            <%= product.images.first ? image_tag(product.images.first.variant(:medium), class: "w-full h-48 object-cover rounded-t-lg") : image_tag("https://via.placeholder.com/70", class: "w-full h-48 object-cover rounded-t-lg") %>
+            <div class="p-2 flex justify-between items-center relative h-32">
+              <div class="text-lg text-gray-700">
                 <%= product.name %>
               </div>
             </div>
