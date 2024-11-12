@@ -33,5 +33,6 @@ Rails.application.routes.draw do
   # User Index
   #
   get "user" => "user#index"
+  get "cart" => "carts#show"
 
 end
