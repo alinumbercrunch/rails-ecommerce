@@ -59,4 +59,45 @@ export default class extends Controller {
     localStorage.setItem("cart", JSON.stringify(cart));
     window.location.reload();
   }
+
+  checkout() {
+    console.log("checkout");
+    const cart = JSON.parse(localStorage.getItem("cart"));
+    const csrfToken = document.querySelector("[name='csrf-token']").content;
+
+    const payload = {
+      authenticity_token: csrfToken,
+      cart: cart,
+    };
+
+    fetch("/checkout", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "X-CSRF-Token": csrfToken,
+      },
+      body: JSON.stringify(payload),
+    })
+      .then((response) => {
+        if (response.ok) {
+          response.json().then((body) => {
+            window.location.href = body.url;
+          });
+        } else {
+          response.json().then((body) => {
+            const errorEl = document.createElement("div");
+            errorEl.innerText = `There was an error while processing your order. ${body.error}`;
+            let errorContainer = document.getElementById("errorContainer");
+            errorContainer.appendChild(errorEl);
+          });
+        }
+      })
+      .catch((error) => {
+        console.error("Error during fetch:", error);
+        const errorEl = document.createElement("div");
+        errorEl.innerText = `There was an error while processing your order. Please try again later.`;
+        let errorContainer = document.getElementById("errorContainer");
+        errorContainer.appendChild(errorEl);
+      });
+  }
 }
