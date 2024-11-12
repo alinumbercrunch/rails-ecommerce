@@ -35,5 +35,4 @@ Rails.application.routes.draw do
   get "user" => "user#index"
   get "cart" => "carts#show"
   post "checkout" => "checkouts#create"
-
 end
