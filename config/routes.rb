@@ -35,4 +35,7 @@ Rails.application.routes.draw do
   get "user" => "user#index"
   get "cart" => "carts#show"
   post "checkout" => "checkouts#create"
+  get "success" => "checkouts#success"
+  get "cancel" => "checkouts#cancel"
+  post "webhooks" => "webhooks#stripe"
 end
