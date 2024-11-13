@@ -88,3 +88,5 @@ gem 'htmlbeautifier'
 gem 'image_processing'
 
 gem 'ruby-vips'
+
+gem "stripe", "~> 13.1"
