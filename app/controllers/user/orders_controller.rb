@@ -4,8 +4,10 @@ class User::OrdersController < UserController
 
   # GET /user/orders or /user/orders.json
   def index
-    @unfulfilled_orders = Order.where(fullfilled: false).order(created_at: :asc)
-    @fulfilled_orders = Order.where(fullfilled: true).order(created_at: :asc)
+    @unfulfilled_pagy, @unfulfilled_orders = pagy(Order.where(fullfilled: false).order(created_at: :asc) , items: 10)
+    @fulfilled_pagy, @fulfilled_orders = pagy(Order.where(fullfilled: true).order(created_at: :asc), items: 10)
+
+
   end
   # GET /user/orders/1 or /user/orders/1.json
   def show

@@ -6,7 +6,7 @@ class WebhooksController < ApplicationController
     Stripe.api_key = stripe_secret_key
     payload = request.body.read
     sig_header = request.env["HTTP_STRIPE_SIGNATURE"]
-    endpoint_secret = Rails.application.credentials.dig(:stripes, :webhook_secret)
+    endpoint_secret = Rails.application.credentials.dig(:stripe, :webhook_secret)
 
     # Debugging line
     puts "Retrieved endpoint_secret: #{endpoint_secret}"
