@@ -1,7 +1,5 @@
 # **ShoppiSheep 🐑**
 
-Uploading ShoppiSheep.png…
-
 
 Enjoy a woolly smooth shopping experience with us!
 
