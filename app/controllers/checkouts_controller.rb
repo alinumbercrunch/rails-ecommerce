@@ -50,4 +50,11 @@ class CheckoutsController < ApplicationController
     Rails.logger.error(e.backtrace.join("\n"))
     render json: { error: "Internal Server Error" }, status: 500
   end
+  def success
+    render :success
+  end
+
+  def cancel
+    render :cancel
+  end
 end

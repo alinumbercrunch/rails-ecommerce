@@ -10,7 +10,9 @@
 
   <div class="overflow-x-auto">
     <div class="py-2 inline-block min-w-full">
-      <div class="overflow-x-scroll">
+      <!-- Unfulfilled Orders Table -->
+      <div class="overflow-x-scroll mb-8">
+        <h2 class="font-bold text-2xl mb-4">Unfulfilled Orders</h2>
         <table class="min-w-full">
           <thead class="bg-white border-b">
             <tr>
@@ -23,7 +25,7 @@
             </tr>
           </thead>
           <tbody>
-            <% (@unfulfilled_orders + @fulfilled_orders).each do |order| %>
+            <% @unfulfilled_orders.each do |order| %>
               <tr class="bg-gray-50 border-b">
                 <td class="px-6 py-4 whitespace-nowrap text-sm font-med text-gray-800">
                   <%= link_to order.id, [:user, order], class: "underline" %>
@@ -47,6 +49,49 @@
             <% end %>
           </tbody>
         </table>
+        <%= pagy_nav(@unfulfilled_pagy) if @unfulfilled_pagy&.pages.to_i > 1 %>
+      </div>
+
+      <!-- Fulfilled Orders Table -->
+      <div class="overflow-x-scroll">
+        <h2 class="font-bold text-2xl mb-4">Fulfilled Orders</h2>
+        <table class="min-w-full">
+          <thead class="bg-white border-b">
+            <tr>
+              <th scope="col" class="text-sm font-medium text-gray-800 px-6 py-4 text-left">Order ID</th>
+              <th scope="col" class="text-sm font-medium text-gray-800 px-6 py-4 text-left">Customer Email</th>
+              <th scope="col" class="text-sm font-medium text-gray-800 px-6 py-4 text-left">Address</th>
+              <th scope="col" class="text-sm font-medium text-gray-800 px-6 py-4 text-left">Total</th>
+              <th scope="col" class="text-sm font-medium text-gray-800 px-6 py-4 text-left">Status</th>
+              <th scope="col" class="text-sm font-medium text-gray-800 px-6 py-4 text-left">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @fulfilled_orders.each do |order| %>
+              <tr class="bg-gray-50 border-b">
+                <td class="px-6 py-4 whitespace-nowrap text-sm font-med text-gray-800">
+                  <%= link_to order.id, [:user, order], class: "underline" %>
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm font-med text-gray-800">
+                  <%= order.customer_email %>
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm font-med text-gray-800">
+                  <%= order.address %>
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm font-med text-gray-800">
+                  <%= "¥#{order.total}" %>
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm font-med text-gray-800">
+                  <%= order.fullfilled ? "Fulfilled" : "Unfulfilled" %>
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm font-med text-gray-800 mr-4">
+                  <%= button_to "Delete", user_order_path(order), method: :delete, class: "mt-2 rounded-lg py-3 px-5 bg-red-500 text-white font-medium hover:bg-red-600" %>
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+        <%= pagy_nav(@fulfilled_pagy) if @fulfilled_pagy&.pages.to_i > 1 %>
       </div>
     </div>
   </div>
