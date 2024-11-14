@@ -10,53 +10,53 @@
     <%= link_to "New product", new_user_product_path, class: "rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium" %>
   </div>
 
-    <div class="flex flex-col w-full">
+  <div class="flex mt-4 flex-col md:flex-row items-start md-items-center justify-start w-full">
+    <%= form_with url: user_products_path, method: :get, class: "flex" do |form| %>
+      <%= form.text_field :query, placeholder: "Search", class: "rounded border-gray-500 text-gray-800" %>
+      <%= form.submit "Submit", class: "cursor-pointer bg-gray-500 ml-2 hover:bg-gray-600 text-white py-2 px-4 rounded" %>
+    <% end %>
+    <%= form_with url: user_products_path, method: :get, class: "flex" do |form| %>
+    <%= form.submit  "Clear", class:"cursor-pointer bg-gray-500 ml-2 hover:bg-gray-600 text-white py-2 px-4 rounded" %>
+    <% end %>
+  </div>
+
+  <div class="flex flex-col w-full">
     <div class="overflow-x-auto sm:mx:0.5 lg:mx-0.5">
-       <div class="py-2 inline-block min-w-full">
+      <div class="py-2 inline-block min-w-full">
         <div class="overflow-x-auto">
-          <table class="min-w-full overflow-x-srcoll">
+          <table class="min-w-full overflow-x-scroll">
             <thead class="bg-white border-b">
               <tr>
-               <th scope="col" class="text-sm font-medium text-gray-800 px-6 py-4 text-left">
-                  Image
-                </th>
-                <th scope="col" class="text-sm font-medium text-gray-800 px-6 py-4 text-left">
-                  Name
-                </th>
-                <th scope="col" class="text-sm font-medium text-gray-800 px-6 py-4 text-left">
-                  Description
-                </th>
-                  <th scope="col" class="text-sm font-medium text-gray-800 px-6 py-4 text-left">
-                  Price
-                </th>
+                <th scope="col" class="text-sm font-medium text-gray-800 px-6 py-4 text-left">Image</th>
+                <th scope="col" class="text-sm font-medium text-gray-800 px-6 py-4 text-left">Name</th>
+                <th scope="col" class="text-sm font-medium text-gray-800 px-6 py-4 text-left">Description</th>
+                <th scope="col" class="text-sm font-medium text-gray-800 px-6 py-4 text-left">Price</th>
               </tr>
             </thead>
             <tbody>
-              <%  @user_products.each do |product| %>
-                  <tr class="bg-gray-50 border-b">
-                    <td class="px-6 py-4 whitespace-nowrap text-sm font-med text-gray-800 underline">
-                      <%= product.images.any? ? image_tag(product.images.first.variant(:thumb)) : image_tag("https://via.placeholder.com/70") %>
-                    </td>
-                    <td class="px-6 py-4 whitespace-nowrap text-sm font-med text-gray-800 underline">
-                      <%= link_to product.name, edit_user_product_path(product) %>
-                    </td>
-                    <td class="px-6 py-4 whitespace-nowrap text-sm font-med text-gray-800">
-                      <%= link_to product.description, edit_user_product_path(product) %>
-                    </td>
-                    <td class="px-6 py-4 whitespace-nowrap text-sm font-med text-gray-800">
-                      <%="¥#{product.price}" %>
-                    </td>
-                    <td class="px-6 py-4 whitespace-nowrap text-sm font-med text-gray-800">
-                        <%= button_to "Delete", user_product_path(product), method: :delete, class: "mt-2 rounded-lg py-3 px-5 bg-red-500 text-white font-medium hover:bg-red-600" %>
-                    </td>
-                  </tr>
+              <% @user_products.each do |product| %>
+                <tr class="bg-gray-50 border-b">
+                  <td class="px-6 py-4 whitespace-nowrap text-sm font-med text-gray-800 underline">
+                    <%= product.images.any? ? image_tag(product.images.first.variant(:thumb)) : image_tag("https://via.placeholder.com/70") %>
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm font-med text-gray-800 underline">
+                    <%= link_to product.name, edit_user_product_path(product) %>
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm font-med text-gray-800">
+                    <%= link_to product.description, edit_user_product_path(product) %>
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm font-med text-gray-800">
+                    <%= "¥#{product.price}" %>
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm font-med text-gray-800">
+                    <%= button_to "Delete", user_product_path(product), method: :delete, class: "mt-2 rounded-lg py-3 px-5 bg-red-500 text-white font-medium hover:bg-red-600" %>
+                  </td>
+                </tr>
               <% end %>
             </tbody>
           </table>
-
         </div>
-       </div>
+      </div>
     </div>
-
   </div>
 </div>
