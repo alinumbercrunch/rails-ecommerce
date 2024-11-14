@@ -4,7 +4,11 @@ class User::ProductsController < UserController
 
   # GET /user/products or /user/products.json
   def index
-    @user_products = Product.all
+    if params[:query].present?
+      @pagy, @user_products = pagy(Product.where("name LIKE ?", "%#{params[:query]}%"))
+    else
+      @pagy, @user_products = pagy(Product.all)
+    end
   end
 
   # GET /user/products/1 or /user/products/1.json
