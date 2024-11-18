@@ -1,4 +1,4 @@
-# <p align="center">**ShoppiSheep 🐑**</p>
+# <p align="center">**ShoppiSheep** <a href="https://mysite-tvcg.onrender.com/categories/10">🐑</a>(Click on the sheep)</p>
 # <p align="center">E-commerce platform<br> for all your shopping needs!</p>
 
 ![ShoppiSheep](https://github.com/user-attachments/assets/e0c9df7d-e931-493c-954c-f008eee064a0)
@@ -71,4 +71,4 @@ https://github.com/user-attachments/assets/c2eec41f-409a-479a-9954-d1ebb8881c1d
 #### **Orders**
 ![Orders](https://github.com/user-attachments/assets/ff3545e3-fae5-4c71-8dc2-81310fdd6125)
 
-## **AWS Deployment** Currently under construction!!
+## **Deployment on render is still being optimized** Currently under construction!!
