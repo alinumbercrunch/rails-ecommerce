@@ -58,3 +58,4 @@ class CheckoutsController < ApplicationController
     render :cancel
   end
 end
+# k
