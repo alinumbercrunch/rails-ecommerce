@@ -93,4 +93,4 @@ gem "stripe", "~> 13.1"
 
 gem "pagy", "~> 9.2"
 
-gem 'aws-sdk-s3', '~> 1.48'
+gem 'aws-sdk-s3', '~> 1.173'
