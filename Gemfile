@@ -91,6 +91,6 @@ gem 'ruby-vips'
 
 gem "stripe", "~> 13.1"
 
-gem "pagy", "~> 9.2"
+gem "pagy", "~> 9.3"
 
 gem 'aws-sdk-s3', '~> 1.48'
