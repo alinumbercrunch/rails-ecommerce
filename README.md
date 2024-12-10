@@ -1,4 +1,4 @@
-# <p align="center">**ShoppiSheep** <a href="https://mysite-tvcg.onrender.com/categories/10">🐑</a>(Click on the sheep)</p>
+# <p align="center">**ShoppiSheep** <a>🐑</a>(Currently migrating to AWS)</p>
 # <p align="center">E-commerce platform<br> for all your shopping needs!</p>
 
 ![ShoppiSheep](https://github.com/user-attachments/assets/e0c9df7d-e931-493c-954c-f008eee064a0)
