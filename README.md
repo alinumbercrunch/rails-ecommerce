@@ -71,4 +71,3 @@ https://github.com/user-attachments/assets/c2eec41f-409a-479a-9954-d1ebb8881c1d
 #### **Orders**
 ![Orders](https://github.com/user-attachments/assets/ff3545e3-fae5-4c71-8dc2-81310fdd6125)
 
-## **Deployment on render is still being optimized** Currently under construction!!
