@@ -89,7 +89,7 @@ gem 'image_processing'
 
 gem 'ruby-vips'
 
-gem "stripe", "~> 13.1"
+gem "stripe", "~> 13.4"
 
 gem "pagy", "~> 9.2"
 
